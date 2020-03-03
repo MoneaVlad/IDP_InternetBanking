@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h2 class="account-heading">{{ current_user.first_name }} {{ current_user.last_name }}</h2>
+          <p class="text-secondary">{{ current_user.email }}</p>
+          <p class="text-secondary">{{ current_user.ci_series }} {{ current_user.ci_number }}</p>
+          <p class="text-secondary">{{ current_user.balance }}$</p>
+          <p class="text-secondary">IBAN: {{ current_user.iban }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+          <h3 class="account-heading">Istoricul tranzacţiilor de ieşire</h3>
+          <div class="flight-container" style="overflow: auto; max-height: 80vh">
+            <div class="table-responsive">
+                <table class="table" id="outTransactions">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID tranzacţie</th>
+                            <th scope="col">Sumă</th>
+                            <th scope="col">Dată</th>
+                            <th scope="col">Detalii</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for transaction in outTransactions %}
+                        <tr id={{ transaction.id }}>
+                            <th scope="row">{{ transaction.id }}</th>
+                            <td> {{ transaction.amount_transacted }} </td>
+                            <td> {{ transaction.date_transacted }} </td>
+                            <td> {{ transaction.details }} </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+        <div class="media">
+          <div class="media-body">
+            <h3 class="account-heading">Istoricul tranzacţiilor de intrare</h3>
+            <div class="flight-container" style="overflow: auto; max-height: 80vh">
+              <div class="table-responsive">
+                  <table class="table" id="inTransactions">
+                      <thead>
+                          <tr>
+                              <th scope="col">ID tranzacţie</th>
+                              <th scope="col">Sumă</th>
+                              <th scope="col">Dată</th>
+                              <th scope="col">Detalii</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      {% for transaction in inTransactions %}
+                          <tr id={{ transaction.id }}>
+                              <th scope="row">{{ transaction.id }}</th>
+                              <td> {{ transaction.amount_transacted }} </td>
+                              <td> {{ transaction.date_transacted }} </td>
+                              <td> {{ transaction.details }} </td>
+                          </tr>
+                      {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock content %}
