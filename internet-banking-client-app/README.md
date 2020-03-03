@@ -1,6 +1,6 @@
 Sistem de online banking
 
-Proiectul va presupune implementarea unui sistem de online banking.
+Aplicatia principala cu care vor interactiona clientii.
 
 Utilizare
 
