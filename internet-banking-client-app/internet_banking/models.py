@@ -57,7 +57,7 @@ class Transaction(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 	def __repr__(self):
-		return f"Post('{self.destination}', '{self.date_transacted}', '{self.user_id}')"
+		return f"Transaction('{self.destination}', '{self.date_transacted}', '{self.user_id}')"
 
 class UserSchema(ma.ModelSchema):
 	class Meta:

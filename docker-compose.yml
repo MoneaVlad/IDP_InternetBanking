@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - internet_banking_db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: internetbanking
+      MYSQL_DATABASE: internetbanking
+      MYSQL_USER: internetbanking
+      MYSQL_PASSWORD: internetbanking
+
+  internet-banking-client-app:
+    depends_on:
+      - mysql
+    image: moneavlad/idp_2020:latest
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: internetbanking
+      DB_USERNAME: internetbanking
+      DB_PASS: internetbanking
+  
+volumes:
+  internet_banking_db_data: {}
+  wp_data_data: {}
