@@ -20,7 +20,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}:3306/{}'.forma
 app.config['SQLALCHEMY_ECHO'] = True
 
 db = SQLAlchemy(app)
-db.create_all()
 
 ma = Marshmallow(app)
 
