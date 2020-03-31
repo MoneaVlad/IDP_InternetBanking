@@ -22,7 +22,7 @@ def random_iban():
 
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
-	iban = db.Column(db.String(10), unique=True, nullable=False, default=random_iban)
+	iban = db.Column(db.String(12), unique=True, nullable=False, default=random_iban)
 	first_name = db.Column(db.String(20), nullable=False)
 	last_name = db.Column(db.String(20), nullable=False)
 	ci_series = db.Column(db.String(2), nullable=False)
