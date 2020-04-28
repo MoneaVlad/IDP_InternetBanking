@@ -4,6 +4,7 @@ from flask_marshmallow import Marshmallow
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
+from prometheus_flask_exporter import PrometheusMetrics
 import os
 
 app = Flask(__name__)
@@ -34,5 +35,11 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'internet.banking69@gmail.com'
 app.config['MAIL_PASSWORD'] = 'bgplctzcrt69'
 mail = Mail(app)
+
+
+metrics = PrometheusMetrics(app)
+
+# static information as metric
+metrics.info('app_info', 'Application info', version='1.0.3')
 
 from internet_banking import routes

@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.7'
 
 services:
   mysql:
@@ -17,14 +17,88 @@ services:
       - mysql
     image: moneavlad/idp_2020:latest
     ports:
-      - "5000:5000"
+      - 5000:5000
     environment:
       DB_HOST: mysql
       DB_PORT: 3306
       DB_NAME: internetbanking
       DB_USERNAME: internetbanking
       DB_PASS: internetbanking
-  
+
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9090:9090
+    links:
+      - cadvisor:cadvisor
+    depends_on:
+      - cadvisor
+    # networks:
+    #   - back-tier
+    restart: always
+#    deploy:
+#      placement:
+#        constraints:
+#          - node.hostname == ${HOSTNAME}
+
+  node-exporter:
+    image: prom/node-exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command: 
+      - '--path.procfs=/host/proc' 
+      - '--path.sysfs=/host/sys'
+      - --collector.filesystem.ignored-mount-points
+      - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
+    ports:
+      - 9100:9100
+    restart: always
+    deploy:
+      mode: global
+
+  cadvisor:
+    image: google/cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - 8080:8080
+    restart: always
+    deploy:
+      mode: global
+
+  grafana:
+    image: grafana/grafana
+    user: "472"
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    # networks:
+    #   - back-tier
+    #   - front-tier
+    restart: always
+
 volumes:
   internet_banking_db_data: {}
-  wp_data_data: {}
+  prometheus_data: {}
+  grafana_data: {}
+
+# networks:
+#   front-tier:
+#   back-tier:
