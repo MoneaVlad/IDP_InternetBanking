@@ -24,7 +24,7 @@ services:
       DB_NAME: internetbanking
       DB_USERNAME: internetbanking
       DB_PASS: internetbanking
-      DEBUG_METRICS: "false"
+      DEBUG_METRICS: "true"
 
   internet-banking-admin-app:
     depends_on:

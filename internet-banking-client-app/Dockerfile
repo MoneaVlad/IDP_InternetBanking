@@ -1,6 +1,6 @@
 FROM python:3.7
 
-ENV DEBUG_METRICS=false
+ENV DEBUG_METRICS=true
 
 EXPOSE 5000
 
