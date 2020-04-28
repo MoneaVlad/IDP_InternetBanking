@@ -2,6 +2,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:85",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -16,10 +17,102 @@
   "editable": true,
   "gnetId": 179,
   "graphTooltip": 1,
-  "id": 1,
-  "iteration": 1571330223815,
+  "iteration": 1588101902499,
   "links": [],
   "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 39,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(flask_http_request_total{job=\"internet-banking-client-app\"}[1m]))",
+          "format": "heatmap",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "total requests",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Flask Application Requests",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:820",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:821",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
     {
       "collapsed": false,
       "datasource": null,
@@ -27,7 +120,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 17,
       "panels": [],
@@ -57,7 +150,7 @@
         "h": 7,
         "w": 3,
         "x": 0,
-        "y": 1
+        "y": 9
       },
       "id": 15,
       "interval": null,
@@ -76,7 +169,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -138,7 +230,7 @@
         "h": 4,
         "w": 3,
         "x": 3,
-        "y": 1
+        "y": 9
       },
       "id": 35,
       "interval": null,
@@ -157,7 +249,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -222,7 +313,7 @@
         "h": 7,
         "w": 5,
         "x": 6,
-        "y": 1
+        "y": 9
       },
       "id": 13,
       "interval": null,
@@ -241,7 +332,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -303,7 +393,7 @@
         "h": 7,
         "w": 4,
         "x": 11,
-        "y": 1
+        "y": 9
       },
       "id": 11,
       "interval": null,
@@ -322,7 +412,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -384,7 +473,7 @@
         "h": 7,
         "w": 4,
         "x": 15,
-        "y": 1
+        "y": 9
       },
       "id": 31,
       "interval": null,
@@ -403,7 +492,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -466,7 +554,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 5
+        "y": 13
       },
       "id": 37,
       "interval": null,
@@ -485,7 +573,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -551,7 +638,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 4,
       "interval": null,
@@ -571,7 +658,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -638,7 +724,7 @@
         "h": 6,
         "w": 6,
         "x": 6,
-        "y": 8
+        "y": 16
       },
       "id": 6,
       "interval": null,
@@ -658,7 +744,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -726,7 +811,7 @@
         "h": 6,
         "w": 7,
         "x": 12,
-        "y": 8
+        "y": 16
       },
       "id": 7,
       "interval": null,
@@ -746,7 +831,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -804,8 +888,9 @@
         "h": 9,
         "w": 6,
         "x": 0,
-        "y": 14
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 25,
       "legend": {
         "avg": false,
@@ -905,8 +990,9 @@
         "h": 9,
         "w": 6,
         "x": 6,
-        "y": 14
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 27,
       "legend": {
         "avg": false,
@@ -1009,8 +1095,9 @@
         "h": 9,
         "w": 7,
         "x": 12,
-        "y": 14
+        "y": 22
       },
+      "hiddenSeries": false,
       "id": 28,
       "legend": {
         "avg": false,
@@ -1095,7 +1182,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 31
       },
       "id": 19,
       "panels": [],
@@ -1119,8 +1206,9 @@
         "h": 10,
         "w": 6,
         "x": 0,
-        "y": 24
+        "y": 32
       },
+      "hiddenSeries": false,
       "id": 3,
       "isNew": true,
       "legend": {
@@ -1221,8 +1309,9 @@
         "h": 10,
         "w": 6,
         "x": 6,
-        "y": 24
+        "y": 32
       },
+      "hiddenSeries": false,
       "id": 2,
       "isNew": true,
       "legend": {
@@ -1315,11 +1404,10 @@
         "h": 13,
         "w": 10,
         "x": 12,
-        "y": 24
+        "y": 32
       },
       "id": 23,
       "links": [],
-      "options": {},
       "pageSize": null,
       "scroll": true,
       "showHeader": true,
@@ -1330,12 +1418,14 @@
       "styles": [
         {
           "alias": "Time",
+          "align": "auto",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "pattern": "Time",
           "type": "date"
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -1377,8 +1467,9 @@
         "h": 14,
         "w": 6,
         "x": 0,
-        "y": 34
+        "y": 42
       },
+      "hiddenSeries": false,
       "id": 8,
       "isNew": true,
       "legend": {
@@ -1478,8 +1569,9 @@
         "h": 14,
         "w": 6,
         "x": 6,
-        "y": 34
+        "y": 42
       },
+      "hiddenSeries": false,
       "id": 9,
       "isNew": true,
       "legend": {
@@ -1571,11 +1663,10 @@
         "h": 10,
         "w": 10,
         "x": 12,
-        "y": 37
+        "y": 45
       },
       "id": 30,
       "links": [],
-      "options": {},
       "pageSize": 10,
       "scroll": true,
       "showHeader": true,
@@ -1586,6 +1677,7 @@
       "styles": [
         {
           "alias": "Time",
+          "align": "auto",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "link": false,
           "linkUrl": "",
@@ -1594,6 +1686,7 @@
         },
         {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -1632,6 +1725,14 @@
           "intervalFactor": 2,
           "legendFormat": "Node-Exporter Version: {{version}}",
           "refId": "C"
+        },
+        {
+          "expr": "flask_exporter_info",
+          "format": "table",
+          "interval": "15m",
+          "intervalFactor": 2,
+          "legendFormat": "Flask-Exporter Version: {{version}}",
+          "refId": "D"
         }
       ],
       "title": "Running Versions",
@@ -1640,13 +1741,14 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 20,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [
     "docker",
     "prometheus, ",
     "node-exporter",
-    "cadvisor"
+    "cadvisor",
+    "app"
   ],
   "templating": {
     "list": [
@@ -1655,6 +1757,7 @@
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
+          "selected": false,
           "text": "1m",
           "value": "1m"
         },
@@ -1721,6 +1824,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -1728,6 +1832,7 @@
         "definition": "label_values(node_exporter_build_info{name=~'$name'},instance)",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "IP",
         "multi": true,
         "name": "node",
@@ -1746,6 +1851,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -1753,6 +1859,7 @@
         "definition": "label_values(node_exporter_build_info,env)",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "Env",
         "multi": true,
         "name": "env",
@@ -1771,6 +1878,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -1778,6 +1886,7 @@
         "definition": "label_values(node_exporter_build_info{env=~'$env'},name)",
         "hide": 0,
         "includeAll": true,
+        "index": -1,
         "label": "CPU Name",
         "multi": true,
         "name": "name",
@@ -1825,7 +1934,10 @@
     ]
   },
   "timezone": "browser",
-  "title": "Docker Prometheus Monitoring",
+  "title": "Prometheus Monitoring",
   "uid": "64nrElFmk",
+  "variables": {
+    "list": []
+  },
   "version": 2
 }

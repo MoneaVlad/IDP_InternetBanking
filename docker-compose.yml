@@ -54,9 +54,11 @@ services:
     links:
       - cadvisor:cadvisor
       - node-exporter:node-exporter
+      - internet-banking-client-app:internet-banking-client-app
     depends_on:
       - cadvisor
       - node-exporter
+      - internet-banking-client-app
     restart: always
 
   node-exporter:

@@ -40,3 +40,11 @@ scrape_configs:
       - 'tasks.node-exporter'
       type: 'A'
       port: 9100
+
+  - job_name: 'internet-banking-client-app'
+    scrape_interval: 5s
+    dns_sd_configs:
+    - names:
+      - 'tasks.internet-banking-client-app'
+      type: 'A'
+      port: 5000
