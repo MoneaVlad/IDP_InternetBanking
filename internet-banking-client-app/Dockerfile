@@ -1,5 +1,7 @@
 FROM python:3.7
 
+ENV DEBUG_METRICS=false
+
 EXPOSE 5000
 
 # We copy just the requirements.txt first to leverage Docker cache
