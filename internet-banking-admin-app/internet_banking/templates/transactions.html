@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<caption><font size="6">Transactions</font></caption>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>AMOUNT</th>
+			<th>DATE</th>
+			<th>DETAILS</th>
+		</tr>
+		{% for transaction in transactions %}
+		<tr>
+			<td> {{transaction.id}} </td>
+			<td> {{transaction.amount_transacted}} </td>
+			<td> {{transaction.date_transacted}} </td>
+			<td> {{transaction.details}} </td>
+		</tr>	
+		{% endfor %}
+	</table>
+
+{% endblock content %}

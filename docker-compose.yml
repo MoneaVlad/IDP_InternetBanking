@@ -24,6 +24,20 @@ services:
       DB_NAME: internetbanking
       DB_USERNAME: internetbanking
       DB_PASS: internetbanking
+      DEBUG_METRICS: false
+
+  internet-banking-admin-app:
+    depends_on:
+      - mysql
+    image: moneavlad/idp_admin:1.0
+    ports:
+      - 5001:5001
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: internetbanking
+      DB_USERNAME: internetbanking
+      DB_PASS: internetbanking
 
   prometheus:
     image: prom/prometheus:v2.1.0
@@ -39,15 +53,11 @@ services:
       - 9090:9090
     links:
       - cadvisor:cadvisor
+      - node-exporter:node-exporter
     depends_on:
       - cadvisor
-    # networks:
-    #   - back-tier
+      - node-exporter
     restart: always
-#    deploy:
-#      placement:
-#        constraints:
-#          - node.hostname == ${HOSTNAME}
 
   node-exporter:
     image: prom/node-exporter
@@ -89,16 +99,9 @@ services:
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
-    # networks:
-    #   - back-tier
-    #   - front-tier
     restart: always
 
 volumes:
   internet_banking_db_data: {}
   prometheus_data: {}
   grafana_data: {}
-
-# networks:
-#   front-tier:
-#   back-tier:

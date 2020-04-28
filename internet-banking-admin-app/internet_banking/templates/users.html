@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<caption><font size="6">Transactions</font></caption>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>IBAN</th>
+			<th>FIRST NAME</th>
+			<th>LAST NAME</th>
+			<th>CI SERIES</th>
+			<th>CI NUMBER</th>
+			<th>EMAIL</th>
+			<th>BALANCE</th>
+		</tr>
+		{% for user in users %}
+		<tr>
+			<td> {{user.id}} </td>
+			<td> {{user.iban}} </td>
+			<td> {{user.first_name}} </td>
+			<td> {{user.last_name}} </td>
+			<td> {{user.ci_series}} </td>
+			<td> {{user.ci_number}} </td>
+			<td> {{user.email}} </td>
+			<td> {{user.balance}} </td>
+		</tr>	
+		{% endfor %}
+	</table>
+
+{% endblock content %}
