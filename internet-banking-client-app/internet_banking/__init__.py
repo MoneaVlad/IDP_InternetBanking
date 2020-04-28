@@ -37,7 +37,7 @@ app.config['MAIL_PASSWORD'] = 'bgplctzcrt69'
 mail = Mail(app)
 
 
-metrics = PrometheusMetrics(app, path='/metrics')
+metrics = PrometheusMetrics(app=None, path='/metrics')
 
 # static information as metric
 metrics.info('app_info', 'Application info', version='1.0.3')
